@@ -1,6 +1,6 @@
 name: Check Team Membership
 description: A GitHub Action to check if a user is a member of a specified team in an organization using the GitHub API
-author: Louisiana Office of Technology Services
+author: Lee Lott
 
 inputs:
   user:
