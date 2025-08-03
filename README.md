@@ -41,7 +41,7 @@ This GitHub Action checks if a specified user is a member of a given team within
        steps:
          - name: Check Team Membership
            id: check
-           uses: la-actions/verify-team-membership@v1.0.0
+           uses: lee-lott-actions/verify-team-membership@v1.0.0
            with:
              user: ${{ github.actor }}
              team-slug: 'my-team-slug'
