@@ -32,7 +32,7 @@ runs:
   steps:
     - name: Check Team Membership
       id: action
+      shell: pwsh
       run: |        
-        source ${{ github.action_path }}/action.sh
-        check_approver_membership "${{ inputs.user }}" "${{ inputs.team-slug }}" "${{ inputs.token }}" "${{ inputs.owner }}"
-      shell: bash
+        . "${{ github.action_path }}/action.ps1"
+        Test-ApproverMembership "${{ inputs.user }}" "${{ inputs.team-slug }}" "${{ inputs.token }}" "${{ inputs.owner }}"
