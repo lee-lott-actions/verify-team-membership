@@ -46,9 +46,9 @@ function Test-ApproverMembership {
             Write-Host "User '$User' is not a member of the '$TeamSlug' team."
         }
     } catch {
-        $httpStatus = $_.Exception.Response.StatusCode.value__
-        Add-Content -Path $env:GITHUB_OUTPUT -Value "error-message=API call failed with HTTP Status: $httpStatus"
-        Add-Content -Path $env:GITHUB_OUTPUT -Value "result=failure"
-        Write-Host "Error: API call failed with HTTP Status: $httpStatus"
+		$errorMsg = "Error: Failed to verify approver $user is a member of the team $TeamSlug. Exception: $($_.Exception.Message)"
+		Add-Content -Path $env:GITHUB_OUTPUT -Value "result=failure"
+		Add-Content -Path $env:GITHUB_OUTPUT -Value "error-message=$errorMsg"
+		Write-Host $errorMsg
     }
 }
