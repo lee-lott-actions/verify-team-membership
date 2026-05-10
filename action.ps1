@@ -25,8 +25,7 @@ function Test-ApproverMembership {
     $headers = @{
         Authorization  = "Bearer $Token"
         Accept         = "application/vnd.github.v3+json"
-        "Content-Type" = "application/json"
-        "User-Agent"   = "pwsh-action"
+		"X-GitHub-Api-Version" = "2026-03-10"
     }
 
     try {
