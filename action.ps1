@@ -23,17 +23,14 @@ function Test-ApproverMembership {
     $uri = "$apiBaseUrl/orgs/$Owner/teams/$TeamSlug/memberships/$User"
 
     $headers = @{
-        Authorization  = "Bearer $Token"
-        Accept         = "application/vnd.github.v3+json"
+        Authorization = "Bearer $Token"
+        Accept = "application/vnd.github+json"
 		"X-GitHub-Api-Version" = "2026-03-10"
     }
 
     try {
         Write-Host "Sending GET request to $uri"
-        $response = Invoke-WebRequest -Uri $uri -Headers $headers -Method Get
-
-        Write-Host "API Response Code: $($response.StatusCode)"
-        Write-Host $response.Content
+        $response = Invoke-WebRequest -Uri $uri -Headers $headers -Method Get -SkipHttpErrorCheck
 
         if ($response.StatusCode -eq 200) {
             Add-Content -Path $env:GITHUB_OUTPUT -Value "result=success"
