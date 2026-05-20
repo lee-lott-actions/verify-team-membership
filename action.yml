@@ -35,4 +35,8 @@ runs:
       shell: pwsh
       run: |        
         . "${{ github.action_path }}/action.ps1"
-        Test-ApproverMembership "${{ inputs.user }}" "${{ inputs.team-slug }}" "${{ inputs.token }}" "${{ inputs.owner }}"
+        Test-ApproverMembership `
+          -User "${{ inputs.user }}" `
+          -TeamSlug "${{ inputs.team-slug }}" `
+          -Token "${{ inputs.token }}" `
+          -Owner "${{ inputs.owner }}"
